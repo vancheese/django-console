@@ -76,10 +76,12 @@ def get_admin_urls(urls):
     Appends the console and post urls to the url patterns
     """
     def get_urls():
-        my_urls =('',
+        my_urls =['',
                            (r'^console/$', admin.site.admin_view(console)),
-                           (r'^console/post/$', admin.site.admin_view(console_post)))
-        return my_urls + urls
+                           (r'^console/post/$', admin.site.admin_view(console_post)]
+        my_urls.append(urls)
+        return *my_urls,
+         
 
     return get_urls
 
