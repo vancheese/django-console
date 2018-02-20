@@ -1,6 +1,6 @@
 #from django.conf.urls import patterns
 from django.contrib import admin
-from django.core.context_processors import csrf
+#from django.core.context_processors import csrf
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from django.conf import settings
@@ -45,7 +45,8 @@ def console(request):
         context = {
             'STATIC_URL': settings.STATIC_URL
         }
-        context.update(csrf(request))
+#        context.update(csrf(request))
+        context.update(request)
         return render_to_response("django-console/admin/index.html", context)
     else:
         return HttpResponse("Unauthorized.", status=403)
